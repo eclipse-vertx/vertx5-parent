@@ -318,6 +318,8 @@
             <sourceFileIncludes>
               <sourceFileInclude>io/vertx/**/*.java</sourceFileInclude>
             </sourceFileIncludes>
+            <!-- Conflicts with automatic module names -->
+            <legacyMode>true</legacyMode>
             <doclint>none</doclint>
           </configuration>
         </plugin>
