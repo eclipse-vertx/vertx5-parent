@@ -68,7 +68,7 @@
     <repository>
       <id>vertx-snapshots-repository</id>
       <name>Vert.x Snapshots Repository</name>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <url>${vertx.snapshotRepository}</url>
       <releases>
         <enabled>false</enabled>
       </releases>
