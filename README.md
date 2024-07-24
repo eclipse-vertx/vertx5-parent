@@ -65,7 +65,7 @@ time and can be previewed using the Chrome _Asciidoctor.js_ plugin.
   </build>
 ```
 
-Documentation can be generated with `mvn asciidoctor:process-asciidoc`, the _Asciidoc_ files are transformed to HTML the _target/docs_ directory.
+Documentation can be generated with `mvn asciidoctor:process-asciidoc` or `mvn asciidoctor:auto-refresh`, the _Asciidoc_ files are transformed to HTML the _target/docs_ directory.
 
 This documentation shall be packaged in a `-docs.zip` file.
 
