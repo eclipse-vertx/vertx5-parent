@@ -106,8 +106,9 @@
     <maven.build.helper.maven.plugin.version>3.6.0</maven.build.helper.maven.plugin.version>
     <maven.cyclonedx.plugin.version>2.8.0</maven.cyclonedx.plugin.version>
 
-    <!-- Override to use a different asciidoc source directory -->
-    <asciidoc.dir>${project.basedir}/src/main/asciidoc</asciidoc.dir>
+    <!-- Override -->
+    <vertx.asciidoc.sources.dir>${project.basedir}/src/main/asciidoc</vertx.asciidoc.sources.dir>
+    <vertx.generated.sources.dir>${project.basedir}/src/main/generated</vertx.generated.sources.dir>
 
     <!-- Specify a path to a valid manifest to merge it with default entries -->
     <jar.manifest></jar.manifest>
@@ -136,9 +137,10 @@
             <execution>
               <id>default-compile</id>
               <configuration>
+                <generatedSourcesDirectory>${vertx.generated.sources.dir}</generatedSourcesDirectory>
                 <compilerArgs>
                   <!-- Configure the docgen processor -->
-                  <compilerArg>-Adocgen.source=${asciidoc.dir}</compilerArg>
+                  <compilerArg>-Adocgen.source=${vertx.asciidoc.sources.dir}</compilerArg>
                   <compilerArg>-Adocgen.output=${project.build.directory}/asciidoc/java</compilerArg>
                   <compilerArg>-Amaven.groupId=${project.groupId}</compilerArg>
                   <compilerArg>-Amaven.artifactId=${project.artifactId}</compilerArg>
