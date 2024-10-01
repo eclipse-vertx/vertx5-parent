@@ -6,8 +6,13 @@ The parent pom defines common default configuration for Vert.x 5 projects:
 - File encoding
 - Java 11 release
 - Install test-jar, sources, test-sources and docs artifacts
-- Netty leak detector
 - Vert.x release/snapshots repositories
+- Asciidoc source dir
+- Asciidoc target dir
+- Generated main sources dir
+- Surefire configuration
+  - Run tests with module path
+  - Netty leak detector
 
 This parent pom provides common default configuration for data object generation and documentation.
 
