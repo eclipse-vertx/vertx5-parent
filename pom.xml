@@ -106,18 +106,21 @@
     <maven.build.helper.maven.plugin.version>3.6.0</maven.build.helper.maven.plugin.version>
     <maven.cyclonedx.plugin.version>2.8.0</maven.cyclonedx.plugin.version>
 
-    <!-- Override -->
+    <!-- Overrides -->
     <vertx.asciidoc.sources.dir>${project.basedir}/src/main/asciidoc</vertx.asciidoc.sources.dir>
     <vertx.asciidoc.target.dir>${project.build.directory}/asciidoc</vertx.asciidoc.target.dir>
     <vertx.generated.sources.dir>${project.basedir}/src/main/generated</vertx.generated.sources.dir>
 
-    <!-- Specify a path to a valid manifest to merge it with default entries -->
-    <jar.manifest></jar.manifest>
+    <!-- Run test using module path -->
+    <vertx.surefire.useModulePath>true</vertx.surefire.useModulePath>
 
     <!-- Default Netty leak detector configuration -->
-    <io.netty.leakDetection.level>DISABLED</io.netty.leakDetection.level>
-    <io.netty.leakDetection.targetRecords>4</io.netty.leakDetection.targetRecords>
-    <io.netty.leakDetection.samplingInterval>128</io.netty.leakDetection.samplingInterval>
+    <vertx.surefire.netty.leakDetection.level>DISABLED</vertx.surefire.netty.leakDetection.level>
+    <vertx.surefire.netty.leakDetection.targetRecords>4</vertx.surefire.netty.leakDetection.targetRecords>
+    <vertx.surefire.netty.leakDetection.samplingInterval>128</vertx.surefire.netty.leakDetection.samplingInterval>
+
+    <!-- Specify a path to a valid manifest to merge it with default entries -->
+    <jar.manifest></jar.manifest>
 
     <!-- Dist management -->
     <vertx.releaseRepository>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</vertx.releaseRepository>
@@ -287,11 +290,12 @@
           <artifactId>maven-surefire-plugin</artifactId>
           <version>${maven.surefire.plugin.version}</version>
           <configuration>
+            <useModulePath>${vertx.surefire.useModulePath}</useModulePath>
             <failIfNoSpecifiedTests>false</failIfNoSpecifiedTests>
             <systemPropertyVariables>
-              <io.netty.leakDetection.level>${io.netty.leakDetection.level}</io.netty.leakDetection.level>
-              <io.netty.leakDetection.targetRecords>${io.netty.leakDetection.targetRecords}</io.netty.leakDetection.targetRecords>
-              <io.netty.leakDetection.samplingInterval>${io.netty.leakDetection.samplingInterval}</io.netty.leakDetection.samplingInterval>
+              <io.netty.leakDetection.level>${vertx.surefire.netty.leakDetection.level}</io.netty.leakDetection.level>
+              <io.netty.leakDetection.targetRecords>${vertx.surefire.netty.leakDetection.targetRecords}</io.netty.leakDetection.targetRecords>
+              <io.netty.leakDetection.samplingInterval>${vertx.surefire.netty.leakDetection.samplingInterval}</io.netty.leakDetection.samplingInterval>
             </systemPropertyVariables>
             <argLine>-server -Xmx1200M</argLine>
             <forkCount>1</forkCount>
