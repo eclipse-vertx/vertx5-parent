@@ -108,6 +108,7 @@
 
     <!-- Override -->
     <vertx.asciidoc.sources.dir>${project.basedir}/src/main/asciidoc</vertx.asciidoc.sources.dir>
+    <vertx.asciidoc.target.dir>${project.build.directory}/asciidoc</vertx.asciidoc.target.dir>
     <vertx.generated.sources.dir>${project.basedir}/src/main/generated</vertx.generated.sources.dir>
 
     <!-- Specify a path to a valid manifest to merge it with default entries -->
@@ -141,7 +142,7 @@
                 <compilerArgs>
                   <!-- Configure the docgen processor -->
                   <compilerArg>-Adocgen.source=${vertx.asciidoc.sources.dir}</compilerArg>
-                  <compilerArg>-Adocgen.output=${project.build.directory}/asciidoc/java</compilerArg>
+                  <compilerArg>-Adocgen.output=${vertx.asciidoc.target.dir}/java</compilerArg>
                   <compilerArg>-Amaven.groupId=${project.groupId}</compilerArg>
                   <compilerArg>-Amaven.artifactId=${project.artifactId}</compilerArg>
                   <compilerArg>-Amaven.version=${project.version}</compilerArg>
@@ -177,7 +178,7 @@
                     <fileSets>
                       <!-- Docs resources -->
                       <fileSet>
-                        <directory>${asciidoc.dir}</directory>
+                        <directory>${vertx.asciidoc.sources.dir}</directory>
                         <outputDirectory>./</outputDirectory>
                         <excludes>
                           <exclude>**/*.ad</exclude>
@@ -186,7 +187,7 @@
                       </fileSet>
                       <!-- Generated docs -->
                       <fileSet>
-                        <directory>${project.build.directory}/asciidoc</directory>
+                        <directory>${vertx.asciidoc.target.dir}</directory>
                         <outputDirectory>./</outputDirectory>
                       </fileSet>
                       <!-- Empty folder to avoid "archive cannot be empty" -->
@@ -209,7 +210,7 @@
           <artifactId>asciidoctor-maven-plugin</artifactId>
           <version>${maven.asciidoctor.plugin.version}</version>
           <configuration>
-            <sourceDirectory>${project.build.directory}/asciidoc/java</sourceDirectory>
+            <sourceDirectory>${vertx.asciidoc.target.dir}/java</sourceDirectory>
             <outputDirectory>${project.build.directory}/docs/${project.artifactId}</outputDirectory>
             <preserveDirectories>true</preserveDirectories>
             <relativeBaseDir>true</relativeBaseDir>
