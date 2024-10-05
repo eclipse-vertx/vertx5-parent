@@ -119,9 +119,6 @@
     <vertx.surefire.netty.leakDetection.targetRecords>4</vertx.surefire.netty.leakDetection.targetRecords>
     <vertx.surefire.netty.leakDetection.samplingInterval>128</vertx.surefire.netty.leakDetection.samplingInterval>
 
-    <!-- Specify a path to a valid manifest to merge it with default entries -->
-    <jar.manifest></jar.manifest>
-
     <!-- Dist management -->
     <vertx.releaseRepository>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</vertx.releaseRepository>
     <vertx.snapshotRepository>https://s01.oss.sonatype.org/content/repositories/snapshots/</vertx.snapshotRepository>
@@ -241,8 +238,6 @@
                   </manifest>
                   <!-- Generate a jar INDEX.LIST -->
                   <index>true</index>
-                  <!-- Provide opportunity to merge entries from a custom file -->
-                  <manifestFile>${jar.manifest}</manifestFile>
                   <manifestEntries>
                     <!-- Add the Maven coordinates in the manifest -->
                     <Maven-Group-Id>${project.groupId}</Maven-Group-Id>
@@ -267,8 +262,6 @@
                   </manifest>
                   <!-- Generate a jar INDEX.LIST -->
                   <index>true</index>
-                  <!-- Provide opportunity to merge entries from a custom file -->
-                  <manifestFile>${jar.manifest}</manifestFile>
                   <manifestEntries>
                     <!-- Add the Maven coordinates in the manifest -->
                     <Maven-Group-Id>${project.groupId}</Maven-Group-Id>
