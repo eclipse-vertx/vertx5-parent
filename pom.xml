@@ -107,14 +107,19 @@
     <maven.cyclonedx.plugin.version>2.8.0</maven.cyclonedx.plugin.version>
 
     <!-- Overrides -->
+
+    <!-- Asciidoc -->
     <vertx.asciidoc.sources.dir>${project.basedir}/src/main/asciidoc</vertx.asciidoc.sources.dir>
     <vertx.asciidoc.target.dir>${project.build.directory}/asciidoc</vertx.asciidoc.target.dir>
+
+    <!-- Codegen -->
     <vertx.generated.sources.dir>${project.basedir}/src/main/generated</vertx.generated.sources.dir>
 
-    <!-- Run test using module path -->
-    <vertx.surefire.useModulePath>true</vertx.surefire.useModulePath>
+    <!-- Javadoc -->
+    <vertx.javadoc.legacyMode>false</vertx.javadoc.legacyMode>
 
-    <!-- Default Netty leak detector configuration -->
+    <!-- Surefire -->
+    <vertx.surefire.useModulePath>true</vertx.surefire.useModulePath>
     <vertx.surefire.netty.leakDetection.level>DISABLED</vertx.surefire.netty.leakDetection.level>
     <vertx.surefire.netty.leakDetection.targetRecords>4</vertx.surefire.netty.leakDetection.targetRecords>
     <vertx.surefire.netty.leakDetection.samplingInterval>128</vertx.surefire.netty.leakDetection.samplingInterval>
@@ -320,7 +325,7 @@
             <sourceFileIncludes>
               <sourceFileInclude>io/vertx/**/*.java</sourceFileInclude>
             </sourceFileIncludes>
-            <legacyMode>false</legacyMode>
+            <legacyMode>${vertx.javadoc.legacyMode}</legacyMode>
             <doclint>none</doclint>
           </configuration>
         </plugin>
