@@ -316,7 +316,7 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
           <version>${maven.javadoc.plugin.version}</version>
-          <!-- Remove impl and keep only io/vertx files (no examples or docoverride) -->
+          <!-- Remove impl and keep only io/vertx files (no examples nor override) -->
           <configuration>
             <reportOutputDirectory>${project.build.directory}/docs</reportOutputDirectory>
             <sourceFileExcludes>
@@ -327,8 +327,7 @@
             <sourceFileIncludes>
               <sourceFileInclude>io/vertx/**/*.java</sourceFileInclude>
             </sourceFileIncludes>
-            <!-- Conflicts with automatic module names -->
-            <legacyMode>true</legacyMode>
+            <legacyMode>false</legacyMode>
             <doclint>none</doclint>
           </configuration>
         </plugin>
