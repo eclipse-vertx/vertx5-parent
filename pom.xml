@@ -111,7 +111,7 @@
 
     <!-- Asciidoc -->
     <vertx.asciidoc.sources.dir>${project.basedir}/src/main/asciidoc</vertx.asciidoc.sources.dir>
-    <vertx.asciidoc.target.dir>${project.build.directory}/asciidoc</vertx.asciidoc.target.dir>
+    <vertx.asciidoc.target.dir>${project.build.directory}/asciidoc/java</vertx.asciidoc.target.dir>
 
     <!-- Codegen -->
     <vertx.generated.sources.dir>${project.basedir}/src/main/generated</vertx.generated.sources.dir>
@@ -148,7 +148,7 @@
                 <compilerArgs>
                   <!-- Configure the docgen processor -->
                   <compilerArg>-Adocgen.source=${vertx.asciidoc.sources.dir}</compilerArg>
-                  <compilerArg>-Adocgen.output=${vertx.asciidoc.target.dir}/java</compilerArg>
+                  <compilerArg>-Adocgen.output=${vertx.asciidoc.target.dir}</compilerArg>
                   <compilerArg>-Amaven.groupId=${project.groupId}</compilerArg>
                   <compilerArg>-Amaven.artifactId=${project.artifactId}</compilerArg>
                   <compilerArg>-Amaven.version=${project.version}</compilerArg>
@@ -216,7 +216,7 @@
           <artifactId>asciidoctor-maven-plugin</artifactId>
           <version>${maven.asciidoctor.plugin.version}</version>
           <configuration>
-            <sourceDirectory>${vertx.asciidoc.target.dir}/java</sourceDirectory>
+            <sourceDirectory>${vertx.asciidoc.target.dir}</sourceDirectory>
             <outputDirectory>${project.build.directory}/docs/${project.artifactId}</outputDirectory>
             <preserveDirectories>true</preserveDirectories>
             <relativeBaseDir>true</relativeBaseDir>
