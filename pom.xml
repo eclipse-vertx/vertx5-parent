@@ -40,6 +40,16 @@
     <name>Eclipse</name>
   </organization>
 
+  <developers>
+    <developer>
+      <id>vertx.io</id>
+      <name>Eclipse Vert.x Project Contributors</name>
+      <url>https://vertx.io/</url>
+      <organization>Eclipse Vert.x</organization>
+      <organizationUrl>https://vertx.io/</organizationUrl>
+    </developer>
+  </developers>
+
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>
