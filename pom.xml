@@ -23,7 +23,7 @@
 
   <groupId>io.vertx</groupId>
   <artifactId>vertx5-parent</artifactId>
-  <version>10-SNAPSHOT</version>
+  <version>10</version>
   <packaging>pom</packaging>
 
   <name>Vert.x 5 Parent</name>
