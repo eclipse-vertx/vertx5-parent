@@ -102,6 +102,10 @@
 
     <!-- Overrides -->
 
+    <!-- Execution skip -->
+    <skipEnforcer>false</skipEnforcer>
+    <skipDocs>false</skipDocs>
+
     <!-- Asciidoc -->
     <vertx.asciidoc.sources.dir>${project.basedir}/src/main/asciidoc</vertx.asciidoc.sources.dir>
     <vertx.asciidoc.target.dir>${project.build.directory}/asciidoc/java</vertx.asciidoc.target.dir>
@@ -455,6 +459,7 @@
                   <goal>enforce</goal>
                 </goals>
                 <configuration>
+                  <skip>${skipEnforcer}</skip>
                   <rules>
                     <requireJavaVersion>
                       <message>Vert.x must be released with Java 11!</message>
