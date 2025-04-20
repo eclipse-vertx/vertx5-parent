@@ -337,7 +337,7 @@
           <version>${maven.javadoc.plugin.version}</version>
           <!-- Remove impl and keep only io/vertx files (no examples nor override) -->
           <configuration>
-            <reportOutputDirectory>${project.build.directory}/docs</reportOutputDirectory>
+            <outputDirectory>${project.build.directory}/docs</outputDirectory>
             <sourceFileExcludes>
               <sourceFileExclude>**/package-info.java</sourceFileExclude>
               <sourceFileExclude>**/impl/**</sourceFileExclude>
