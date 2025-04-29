@@ -69,11 +69,6 @@
       <name>Vert.x Snapshots Repository</name>
       <url>${vertx.snapshotRepository}</url>
     </snapshotRepository>
-    <repository>
-      <id>vertx-release-repository</id>
-      <name>Vert.x Release Repository</name>
-      <url>${vertx.releaseRepository}</url>
-    </repository>
   </distributionManagement>
 
   <repositories>
@@ -117,6 +112,7 @@
     <maven.asciidoctor.plugin.version>3.2.0</maven.asciidoctor.plugin.version>
     <maven.build.helper.maven.plugin.version>3.6.0</maven.build.helper.maven.plugin.version>
     <maven.cyclonedx.plugin.version>2.9.1</maven.cyclonedx.plugin.version>
+    <maven.central.publishing.maven.plugin.version>0.7.0</maven.central.publishing.maven.plugin.version>
 
     <!-- Overrides -->
 
@@ -141,8 +137,11 @@
     <vertx.surefire.netty.leakDetection.samplingInterval>128</vertx.surefire.netty.leakDetection.samplingInterval>
 
     <!-- Dist management -->
-    <vertx.releaseRepository>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</vertx.releaseRepository>
-    <vertx.snapshotRepository>https://s01.oss.sonatype.org/content/repositories/snapshots/</vertx.snapshotRepository>
+    <vertx.snapshotRepository>https://central.sonatype.com/repository/maven-snapshots/</vertx.snapshotRepository>
+
+    <!-- Sonatype central -->
+    <sonatype.central.serverId>central</sonatype.central.serverId>
+    <sonatype.central.url>https://central.sonatype.com</sonatype.central.url>
   </properties>
 
   <build>
@@ -501,6 +500,17 @@
                 </goals>
               </execution>
             </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.sonatype.central</groupId>
+            <artifactId>central-publishing-maven-plugin</artifactId>
+            <version>${maven.central.publishing.maven.plugin.version}</version>
+            <extensions>true</extensions>
+            <configuration>
+              <publishingServerId>${sonatype.central.serverId}</publishingServerId>
+              <centralBaseUrl>${sonatype.central.url}</centralBaseUrl>
+              <autoPublish>false</autoPublish>
+            </configuration>
           </plugin>
         </plugins>
       </build>
