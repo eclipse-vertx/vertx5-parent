@@ -393,6 +393,9 @@
           <groupId>org.cyclonedx</groupId>
           <artifactId>cyclonedx-maven-plugin</artifactId>
           <version>${maven.cyclonedx.plugin.version}</version>
+          <configuration>
+            <skipNotDeployed>false</skipNotDeployed>
+          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
@@ -498,9 +501,6 @@
                 <goals>
                   <goal>makeBom</goal>
                 </goals>
-                <configuration>
-                  <skipNotDeployed>false</skipNotDeployed>
-                </configuration>
               </execution>
             </executions>
           </plugin>
