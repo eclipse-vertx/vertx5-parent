@@ -72,6 +72,8 @@ time and can be previewed using the Chrome _Asciidoctor.js_ plugin.
 
 Documentation can be generated with `mvn asciidoctor:process-asciidoc` or `mvn asciidoctor:auto-refresh`, the _Asciidoc_ files are transformed to HTML the _target/docs_ directory.
 
+By default, the generated HTML uses a left TOC with 2 levels show, you can override the number of levels shown with the `vertx.asciidoc.attributes.toclevels` property: `mvn asciidoctor:process-asciidoc -Dvertx.asciidoc.attributes.toclevels=5`
+
 This documentation shall be packaged in a `-docs.zip` file.
 
 ```xml
@@ -91,4 +93,3 @@ This documentation shall be packaged in a `-docs.zip` file.
     </plugin>
   </build>
 ```
-

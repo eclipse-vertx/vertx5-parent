@@ -123,6 +123,7 @@
     <!-- Asciidoc -->
     <vertx.asciidoc.sources.dir>${project.basedir}/src/main/asciidoc</vertx.asciidoc.sources.dir>
     <vertx.asciidoc.target.dir>${project.build.directory}/asciidoc/java</vertx.asciidoc.target.dir>
+    <vertx.asciidoc.attributes.toclevels>2</vertx.asciidoc.attributes.toclevels>
 
     <!-- Codegen -->
     <vertx.generated.sources.dir>${project.basedir}/src/main/generated</vertx.generated.sources.dir>
@@ -238,6 +239,7 @@
             <doctype>book</doctype>
             <attributes>
               <toc>left</toc>
+              <toclevels>${vertx.asciidoc.attributes.toclevels}</toclevels>
               <source-highlighter>coderay</source-highlighter>
               <icons>font</icons>
             </attributes>
