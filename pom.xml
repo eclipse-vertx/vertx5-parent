@@ -312,7 +312,7 @@
               <io.netty.leakDetection.targetRecords>${vertx.surefire.netty.leakDetection.targetRecords}</io.netty.leakDetection.targetRecords>
               <io.netty.leakDetection.samplingInterval>${vertx.surefire.netty.leakDetection.samplingInterval}</io.netty.leakDetection.samplingInterval>
             </systemPropertyVariables>
-            <argLine>-server -Xmx1200M</argLine>
+            <argLine>-server -Xmx1200M --enable-native-access=io.netty.common</argLine>
             <forkCount>1</forkCount>
             <reuseForks>true</reuseForks>
           </configuration>
