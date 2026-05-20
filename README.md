@@ -43,6 +43,25 @@ execution, those processors must be configured explicitly by the pom.
   </build>
 ```
 
+### Spotless support
+
+Provides Spotless support with the Spotless Maven Plugin.
+
+This parent provides a default plugin configuration that checks
+
+- unused imports
+- trailing whitespaces
+- end with newlines
+
+The plugin can be invoked manually to check or make the source code compliant
+
+```shell
+> mvn spotless:check
+> mvn spotless:apply
+```
+
+This parent provides a profile named `checkstyle` that runs the `check` goal bound to the `verify` phase, usually this profile is used by the CI to ensure contributions do not break the spotless invariants.
+
 ### Asciidoc
 
 Asciidoc is generated from `src/main/asciidoc` in the `target/asciidoc/java` directory in _Asciidoc_ format at compilation

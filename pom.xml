@@ -113,6 +113,7 @@
     <maven.build.helper.maven.plugin.version>3.6.0</maven.build.helper.maven.plugin.version>
     <maven.cyclonedx.plugin.version>2.9.1</maven.cyclonedx.plugin.version>
     <maven.central.publishing.maven.plugin.version>0.7.0</maven.central.publishing.maven.plugin.version>
+    <maven.spotless.maven.plugin.version>2.46.1</maven.spotless.maven.plugin.version>
 
     <!-- Overrides -->
 
@@ -399,6 +400,18 @@
             <skipNotDeployed>false</skipNotDeployed>
           </configuration>
         </plugin>
+        <plugin>
+          <groupId>com.diffplug.spotless</groupId>
+          <artifactId>spotless-maven-plugin</artifactId>
+          <version>${maven.spotless.maven.plugin.version}</version>
+          <configuration>
+            <java>
+              <removeUnusedImports/>
+              <trimTrailingWhitespace/>
+              <endWithNewline/>
+            </java>
+          </configuration>
+        </plugin>
       </plugins>
     </pluginManagement>
     <plugins>
@@ -516,6 +529,26 @@
               <centralBaseUrl>${sonatype.central.url}</centralBaseUrl>
               <autoPublish>false</autoPublish>
             </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
+      <id>checkstyle</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.diffplug.spotless</groupId>
+            <artifactId>spotless-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>check</goal>
+                </goals>
+                <phase>verify</phase>
+              </execution>
+            </executions>
           </plugin>
         </plugins>
       </build>
