@@ -134,6 +134,7 @@
 
     <!-- Surefire -->
     <vertx.surefire.useModulePath>true</vertx.surefire.useModulePath>
+    <vertx.surefire.argLine>-server -Xmx1200M</vertx.surefire.argLine>
     <vertx.surefire.netty.leakDetection.level>DISABLED</vertx.surefire.netty.leakDetection.level>
     <vertx.surefire.netty.leakDetection.targetRecords>4</vertx.surefire.netty.leakDetection.targetRecords>
     <vertx.surefire.netty.leakDetection.samplingInterval>128</vertx.surefire.netty.leakDetection.samplingInterval>
@@ -313,7 +314,7 @@
               <io.netty.leakDetection.targetRecords>${vertx.surefire.netty.leakDetection.targetRecords}</io.netty.leakDetection.targetRecords>
               <io.netty.leakDetection.samplingInterval>${vertx.surefire.netty.leakDetection.samplingInterval}</io.netty.leakDetection.samplingInterval>
             </systemPropertyVariables>
-            <argLine>-server -Xmx1200M --enable-native-access=io.netty.common</argLine>
+            <argLine>${vertx.surefire.argLine}</argLine>
             <forkCount>1</forkCount>
             <reuseForks>true</reuseForks>
           </configuration>
@@ -553,5 +554,16 @@
         </plugins>
       </build>
     </profile>
+
+    <profile>
+      <id>Java21</id>
+      <activation>
+        <jdk>[21,)</jdk>
+      </activation>
+      <properties>
+        <vertx.surefire.argLine>-server -Xmx1200M --enable-native-access=io.netty.common</vertx.surefire.argLine>
+      </properties>
+    </profile>
+
   </profiles>
 </project>
